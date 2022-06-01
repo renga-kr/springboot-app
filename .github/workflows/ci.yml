@@ -12,4 +12,4 @@ jobs:
     container: maven:3.8.5-openjdk-11
     steps:
     - name: Build with Maven
-      run: mvn clean install
+      run: mvn clean install --file pom.xml
