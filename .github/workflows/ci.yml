@@ -28,7 +28,11 @@ jobs:
           ${{ runner.os }}-maven- 
 
     - name: print the m2 folder
-      run: ls -lR ~/.m2/repository       
+      run: ls -lR ~/.m2/repository
+      continue-on-error: true
+
+    - name: print maven path
+      run: mvn help:evaluate -Dexpression=settings.localRepository | grep -v '\[INFO\]'
         
     - name: Build with Maven
       run: mvn clean install --file pom.xml
