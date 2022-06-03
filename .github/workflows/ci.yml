@@ -25,7 +25,10 @@ jobs:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
-          ${{ runner.os }}-maven-      
+          ${{ runner.os }}-maven- 
+
+    - name: print the m2 folder
+      run: ls -lR ~/.m2/repository       
         
     - name: Build with Maven
       run: mvn clean install --file pom.xml
