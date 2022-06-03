@@ -22,13 +22,13 @@ jobs:
     - name: Cache local Maven repository
       uses: actions/cache@v2
       with:
-        path: ~/.m2/repository
+        path: /root/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven- 
 
     - name: print the m2 folder
-      run: ls -lR ~/.m2/repository
+      run: ls -lR /root/.m2/repository
       continue-on-error: true
 
     - name: print maven path
@@ -36,3 +36,7 @@ jobs:
         
     - name: Build with Maven
       run: mvn clean install --file pom.xml
+
+    - name: print after the m2 folder
+      run: ls -lR /root/.m2/repository
+      continue-on-error: true
