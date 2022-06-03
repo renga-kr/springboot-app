@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: node:14.16        
+      image: maven:3.8.5-openjdk-11
       volumes:
         - my_docker_volume:/volume_mount
         - /data/my_data
